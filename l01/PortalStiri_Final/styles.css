@@ -1,0 +1,96 @@
+header, main {
+    display: flex;
+    justify-content: space-between;
+}
+
+header {
+    height: 5vh;
+}
+
+nav ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+nav li {
+    display: inline;
+    margin-right: 2px;
+}
+
+nav li a {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: x-large;
+}
+
+.logo {
+    position: relative;
+    text-align: center;
+}
+
+.logo img {
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.logo p {
+    position: absolute;
+    color: white;
+    font-size: 2.5vw;
+    bottom: 0;
+    right: 50%;
+    transform: translateX(50%);
+}
+
+.categorii {
+    width: 320px;
+}
+
+.categorii ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.stiri {
+    width: calc(100% - 340px);
+}
+
+.data {
+    font-style: italic;
+}
+
+footer {
+    margin-top: 20px;
+    text-align: center;
+}
+
+button {
+    color: white;
+    background-color: red;
+    border-radius: 2px;
+    border: none;
+    padding: 2px;
+}
+
+@media screen and (max-width: 600px) {
+    main {
+        display: block;
+    }
+
+    .stiri, .categorii {
+        width: 100%;
+    }
+
+    .stiri {
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+        border-bottom: 2px solid #000;
+    }
+
+    .categorii li {
+        margin-bottom: 10px;
+    }
+}

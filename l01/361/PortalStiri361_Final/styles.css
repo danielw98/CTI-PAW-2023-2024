@@ -1,0 +1,90 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    background-color: lightblue;
+}
+
+header nav {
+    display: flex;
+}
+
+header nav a {
+    text-decoration: none;
+    color: black;
+    padding: 10px 20px;
+    /* display: block; */
+}
+
+header nav a:hover {
+    background-color: gray;
+}
+
+main.index {
+    display: grid;
+    grid-template-areas:
+        "banner banner"
+        "news categorii";
+    grid-template-columns: 3fr 1fr;
+}
+
+section.banner {
+    position: relative;
+    grid-area: banner;
+    height: 40vh;
+}
+
+section.banner img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+section.banner .slogan {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+section.news {
+    grid-area: news;
+}
+
+section.categorii {
+    grid-area: categorii;
+}
+
+section.categorii ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+small{
+    position:absolute;
+    bottom: 0;
+    margin: 0 auto;
+}
+
+.categorii li:hover{
+    color: red;
+}
+
+@media only screen and (max-width:600px)
+{
+    main.index{
+        display:block;
+    }
+}
