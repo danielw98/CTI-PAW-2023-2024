@@ -1,0 +1,60 @@
+nav{
+    display:flex;
+    gap:1em;
+    margin-bottom:1em;
+}
+
+#meniu{
+    width:70%;
+    border: 5px solid blue;
+    padding:1em;
+}
+
+#search{
+    width:30%;
+    border: 5px solid red;
+    padding: 1em;
+}
+
+#banner{
+    height:100px;
+    padding:1em;
+    border: 5px solid green;
+    background-image: url("download.png");
+    background-position: center;
+    background-size: auto;
+    
+}
+
+#slogan{
+    margin:auto;
+    border:5px solid blue;
+    width: 100px;
+}
+
+#slogan > p {
+    color: hotpink;
+    font-weight: 700;
+}
+
+.reclame{
+    display:flex;
+}
+
+.stiri{
+    border: 5px solid orange;
+    width: 70%;
+}
+
+.stiri > ul {
+    list-style-type: none;
+}
+
+.categorii{
+    border: 5px solid lightblue;
+    width: 30%;
+}
+
+.categorii > ul {
+    list-style-type: none;
+}
