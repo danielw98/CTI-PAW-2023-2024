@@ -1,0 +1,33 @@
+﻿@page
+@using Gr362_L03.Models
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<h1 class="text-center">Portal Stiri</h1>
+<img src="~/imagine.jpg" alt="Imagine Banner" />
+<div id="div-container">
+    <section id="stiri-section">
+        <h2>Stiri</h2>
+        @foreach (Stire stire in Model.Stiri)
+        {
+            <article id="stire">
+                <p>@stire.Titlu</p>
+                <p>@stire.Lead</p>
+                <p>@stire.Autor</p>
+                <p>@stire.DataAdaugare</p>
+            </article>
+            <br />
+        }
+    </section>
+
+    <section id="categorii-section">
+        <h2>Categorii</h2>
+        <ul>
+            <li><a asp-page="/Politic">Politic</a></li>
+            <li><a asp-page="/Sport">Sport</a></li>
+        </ul>
+    </section>
+</div>
+

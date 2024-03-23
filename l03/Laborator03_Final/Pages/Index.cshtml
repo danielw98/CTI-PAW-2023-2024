@@ -1,0 +1,31 @@
+﻿@page
+@using Laborator03.Models
+@model IndexModel
+@{
+    ViewData["Titlu"] = "Portal Stiri";
+}
+
+<h1 class="text-center">Portal-Stiri</h1>
+<div id="div-container">
+    <section id="stiri-section">
+        <h2>Stiri</h2>
+        @foreach(Stire stire in Model.GetStiri())
+        {
+            <article id="stire">
+                <p>@stire.Titlu</p>
+                <p>@stire.Autor</p>
+                <p>@stire.Data</p>
+                <p>@stire.Autor</p>
+            </article>
+            <br />
+        }
+    </section>
+
+    <section id="categorii-section">
+        <h2>Categorii</h2>
+        <ul>
+            <li><a asp-page="/Politic">Politic</a></li>
+            <li><a asp-page="/Sport">Sport</a></li>
+        </ul>
+    </section>
+</div>

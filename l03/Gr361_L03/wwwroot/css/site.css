@@ -1,0 +1,44 @@
+html {
+    font-size: 16px;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+#stire {
+    border: 5px inset black;
+    padding: 10px;
+}
+
+#div-container {
+    display: flex;
+    width: 100%;
+}
+
+#stiri-section {
+    width: 80%;
+}
+
+#categorii-section {
+    border: 5px inset black;
+    padding: 10px;
+    width: 20%;
+    margin-left: 20px;
+}
+
+@media (max-width: 900px) {
+    #div-container {
+        display: block;
+    }
+
+    #stiri-section, #categorii-section {
+        width: 100%;
+        margin-left: 0px;
+    }
+}

@@ -1,0 +1,19 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+@foreach (Stire stire in Model.stiri)
+{
+    <h3>
+        @stire.titlu
+    </h3>
+    <p>
+        @stire.lead
+    </p>
+    <p>
+        @stire.autor la data de
+        @stire.Date
+    </p>
+}
