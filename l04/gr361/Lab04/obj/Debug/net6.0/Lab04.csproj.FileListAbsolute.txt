@@ -1,9 +1,0 @@
-C:\Daniel\ore\C#_Repo\l04\gr361\Lab04\obj\Debug\net6.0\Lab04.csproj.AssemblyReference.cache
-C:\Daniel\ore\C#_Repo\l04\gr361\Lab04\obj\Debug\net6.0\Lab04.GeneratedMSBuildEditorConfig.editorconfig
-C:\Daniel\ore\C#_Repo\l04\gr361\Lab04\obj\Debug\net6.0\Lab04.AssemblyInfoInputs.cache
-C:\Daniel\ore\C#_Repo\l04\gr361\Lab04\obj\Debug\net6.0\Lab04.AssemblyInfo.cs
-C:\Daniel\ore\C#_Repo\l04\gr361\Lab04\obj\Debug\net6.0\Lab04.csproj.CoreCompileInputs.cache
-C:\Daniel\ore\C#_Repo\l04\gr361\Lab04\obj\Debug\net6.0\Lab04.MvcApplicationPartsAssemblyInfo.cache
-C:\Daniel\ore\C#_Repo\l04\gr361\Lab04\obj\Debug\net6.0\Lab04.RazorAssemblyInfo.cache
-C:\Daniel\ore\C#_Repo\l04\gr361\Lab04\obj\Debug\net6.0\Lab04.RazorAssemblyInfo.cs
-C:\Daniel\ore\C#_Repo\l04\gr361\Lab04\obj\Debug\net6.0\Lab04.sourcelink.json
