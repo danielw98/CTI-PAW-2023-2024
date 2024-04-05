@@ -1,7 +1,7 @@
-using Lab04.ContextModels;
+using Lab04_Gr362.ContextModels;
 using Microsoft.EntityFrameworkCore;
 
-namespace Lab04;
+namespace Lab04_Gr362;
 
 public class Program
 {

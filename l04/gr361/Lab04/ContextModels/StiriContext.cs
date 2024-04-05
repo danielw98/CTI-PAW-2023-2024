@@ -1,7 +1,7 @@
-﻿using Lab04.Models;
+﻿using Lab04_Gr361.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace Lab04.ContextModels;
+namespace Lab04_Gr361.ContextModels;
 
 public class StiriContext : DbContext
 {

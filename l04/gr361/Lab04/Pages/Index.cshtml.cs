@@ -1,10 +1,10 @@
-﻿using Lab04.ContextModels;
-using Lab04.Models;
+﻿using Lab04_Gr361.ContextModels;
+using Lab04_Gr361.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 
-namespace Lab04.Pages
+namespace Lab04_Gr361.Pages
 {
     public class IndexModel : PageModel
     {

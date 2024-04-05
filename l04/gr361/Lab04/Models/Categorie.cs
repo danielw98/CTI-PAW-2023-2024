@@ -1,4 +1,4 @@
-﻿namespace Lab04.Models;
+﻿namespace Lab04_Gr361.Models;
 
 public class Categorie
 {

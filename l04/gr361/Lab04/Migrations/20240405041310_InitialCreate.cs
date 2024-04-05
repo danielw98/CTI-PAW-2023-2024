@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace Lab04.Migrations
+namespace Lab04_Gr361.Migrations
 {
     public partial class InitialCreate : Migration
     {
