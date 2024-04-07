@@ -1,0 +1,16 @@
+﻿@page "{stireId:int}"
+@using Lab05_Gr361.Models
+@model Lab05_Gr361.Pages.StireModel
+@{
+    Stire stire = Model.Stire!;
+}
+
+@{
+    <article>
+        <h2>@stire.Lead</h2>
+        <p>continut: @stire.Continut</p>
+        <p>Adaugat de @stire.Autor la data de @stire.Data in categoria @stire.Categorie!.Nume</p>
+    </article>
+}
+<br />
+<a asp-page="Index">Reveniti la Index</a>
