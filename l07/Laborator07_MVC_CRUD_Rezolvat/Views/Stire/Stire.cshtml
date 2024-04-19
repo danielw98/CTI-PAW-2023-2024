@@ -1,0 +1,15 @@
+﻿@model StireModel
+
+@{
+    StireModel stire = Model;
+    ViewData["Title"] = stire.Titlu;
+}
+
+<h1>Titlu: @stire.Titlu</h1>
+
+<article>
+    <h2>Lead: @stire.Lead</h2>
+    <p>Adaugat de @stire.Autor la data de @stire.Data in categoria @stire.Categorie!.Nume </p>
+</article>
+
+<a asp-action="Index">Reintoarcere la pagina principala</a>
