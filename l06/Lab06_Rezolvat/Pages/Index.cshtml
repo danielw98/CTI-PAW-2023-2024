@@ -1,0 +1,19 @@
+﻿@page
+@using Lab05_Gr362.Models
+@model IndexModel
+@{
+    ViewData["Title"] = "Portal Stiri";
+}
+
+<h1>Portal Stiri</h1>
+@{
+    foreach (Stire stire in Model.Stire)
+    {
+        <p><a asp-page="EditeazaStire" asp-route-stireId="@stire.Id">Editeaza Stire</a></p>
+        <p><a asp-page="StergeStire" asp-route-stireId="@stire.Id">Sterge Stire</a></p>
+        <h2><a asp-page="Stire" asp-route-stireId="@stire.Id">@stire.Titlu</a></h2>
+        <br />
+    }
+}
+
+<p><a asp-page="AdaugaStire">Adauga Stire</a></p>

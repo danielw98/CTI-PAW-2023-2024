@@ -1,0 +1,43 @@
+﻿@page
+@model Lab06.Pages.AdaugaStireModel
+@{
+}
+
+<div class="container">
+    <form method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="@Model.Stire.Titlu" class="control-label">Title</label>
+            <input asp-for="@Model.Stire.Titlu" class="form-control" />
+            <span asp-validation-for="@Model.Stire.Titlu" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.Stire.Lead" class="control-label">Lead</label>
+            <input asp-for="@Model.Stire.Lead" class="form-control" />
+            <span asp-validation-for="@Model.Stire.Lead" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.Stire.Autor" class="control-label">Author</label>
+            <input asp-for="@Model.Stire.Autor" class="form-control" />
+            <span asp-validation-for="@Model.Stire.Autor" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.Stire.Continut" class="control-label">Content</label>
+            <input asp-for="@Model.Stire.Continut" class="form-control" />
+            <span asp-validation-for="@Model.Stire.Continut" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.Stire.Data" class="control-label">Date</label>
+            <input asp-for="@Model.Stire.Data" class="form-control" />
+            <span asp-validation-for="@Model.Stire.Data" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.Stire.CategorieId" class="control-label">Category Id</label>
+            <select asp-for="@Model.Stire.CategorieId" asp-items="@Model.Categorii" class="form-control"></select>
+            <span asp-validation-for="@Model.Stire.CategorieId" class="text-danger"></span>
+        </div>
+        <br />
+        <input type="submit" value="Adauga" />
+        <br />
+    </form>
+</div>
