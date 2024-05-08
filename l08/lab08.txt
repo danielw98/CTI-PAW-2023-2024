@@ -1,0 +1,11 @@
+Lab07 - Portal Stiri MVC in ASP .NET CORE cu baze de date SQLServer si operatii CRUD implementate
+Punct inceput - Lab07 - https://github.com/danielw98/CTI-PAW-2023-2024/tree/main/l07
+- lucrat complet aici: https://www.youtube.com/watch?v=BxvSUTNWV04
+
+Lab08 - Modificari asupra Lab07:
+    * login/logout/signup
+    * implementare de roluri
+    * buton de search
+
+Lab08 prima parte
+https://www.youtube.com/watch?v=EvmFsCG9KYc&list=PLoa6OdlAVvUl0V1m_41DtOsMUGKZGkLaB
