@@ -25,7 +25,7 @@ Incepand cu proiectul din laboratorul trecut, realizati urmatoarele:
 
 2) Stergeti migrarile existente (daca sunt) si Add-Migration Lab10_StiriDb dupa care Update-Database, ambele din Package Manager Console.
 
-3) Fisierul lab10_db.dacpac contine baza de date necesara. Din SQL Server Object Explorer, pe baza de date creata (Lab10_StiriDb), dati Publish si selectati fisierul .dacpac dat, astfel ati importat datele
+3) Fisierul lab10_db.dacpac contine baza de date necesara. Din SQL Server Object Explorer, pe baza de date creata (Lab10_StiriDb), dati Publish si selectati fisierul .dacpac dat, astfel ati importat datele. Setati un utilizator drept admin sau moderator (2 sau 3 ca numar rol), in tabela Users din SQL Server.
 
 4) Instalati pachetele Swashbuckle.AspNetCore (v6.5.0) si AutoMapper (v13.0.1). 
 
@@ -42,24 +42,50 @@ if (app.Environment.IsDevelopment())
 Impreuna cu linia urmatoare inainte de app.Run(): 
 app.MapControllers();
 
-
 5) Creati un director Models.UI si in acesta un fisier StireModelUI.cs (vom discuta despre DTO), pe scurt, ce avem in BD si ce intoarcem la utilizator difera (nu ii dam toate coloanele spre exemplu, ci doar un subset al lor, etc).
 
-6) Creati un controller StireAPIController.cs din template-ul <TODO> care mosteneste ControllerBase
+6) Creati un API controller StireAPIController.cs din template-ul API Controller Empty care mosteneste ControllerBase
 
 7) In cadrul controller-ului, salvati o referinta (ca de obicei) catre _context din Db, primita in constructor prin Dependency Injection.
 
-8) Creati versiuni sincrone pentru urmatoarele actiuni, cu rute cu nume cu sens, si verificati de erori, returnand coduri HTTP corecte si cat mai multe informatii despre erori:
+8) Adaugati un folder Common in care creati o clasa MappingConfig.cs cu urmatorul continut:
+public class MappingConfig
+{
+    internal static IMapper Configure()
+    {
+        MapperConfiguration automapperConfig = new(cfg =>
+        {
+            cfg.CreateMap<StireModel, StireModelUI>().ReverseMap();
+        });
+        // make sure all the mappings are valid
+        try
+        {
+            automapperConfig.AssertConfigurationIsValid();
+        }
+        catch (Exception ex)
+        {
+            throw;
+        }
+        return new Mapper(automapperConfig);
+    }
+}
+
+9) Adaugati urmatoare linie de cod la inceputul Program.cs, inainte de Main():
+// ar trebui trimis/injectat ca DI la servicii, nu ca variabila statica magica
+public static IMapper AutoMapper = MappingConfig.Configure();
+
+10) Creati versiuni sincrone pentru urmatoarele actiuni, cu rute cu nume cu sens, si verificati de erori, returnand coduri HTTP corecte si cat mai multe informatii despre erori:
 
 Toate metodele de mai jos retureaza, ca de obicei, IActionResult, insa, de data aceasta, status-uri HTTP, nu pagini MVC sau Razor.
 
 Pentru fiecare metoda, calea sa fie cat mai evidenta in API
 
 a) Get() - returneaza lista de stiri
-b) Delete(int id) - sterge stirea cu id-ul dat
-c) Post(StireModel data) - adaugati o noua stire
-d) Put(int id, StireModel data) - modificati stirea referentiata cu id-ul id
+b) Get(int id) - returneaza o stire dupa id-ul dat
+c) Delete(int id) - sterge stirea cu id-ul dat
+d) Post(StireModelUI data) - adaugati o noua stire
+e) Put(int id, StireModelUI data) - modificati stirea referentiata cu id-ul id
 
-9) Creati varianta asincrona pentru toate metodele, si lasati-o disponibila in API.
+11) Creati varianta asincrona pentru toate metodele, si lasati-o disponibila in API.
 
-10) Doar admin/moderator sa poata sa vada pagina de swagger
+12) Doar admin/moderator sa poata sa vada pagina de swagger
