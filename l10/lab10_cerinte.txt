@@ -1,0 +1,65 @@
+Proiect de inceput
+==================
+Proiectul de inceput este ultima versiune lucrata a portalului de stiri, disponibila pe github aici:
+	https://github.com/danielw98/CTI-PAW-2023-2024/tree/main/l09
+------------------------------------------------
+Sau ca arhiva pe wetransfer aici:
+	https://we.tl/t-cgUa9XECyW
+-------------------------------------------------
+Playlist YouTube (esential incepand de la Razor cu DB sau MVC si in continuare, adica Lab06/Lab07):
+	https://www.youtube.com/playlist?list=PLoa6OdlAVvUl0V1m_41DtOsMUGKZGkLaB
+
+
+Inainte de toate
+================
+- demo proiect gol WebAPI WeatherForecast
+- discutie despre Swagger si Postman
+- discutie despre tipurile de date intoarse din API
+- discutie despre ce trebuie sa mostenim
+=========================================================================
+
+
+Incepand cu proiectul din laboratorul trecut, realizati urmatoarele:
+
+1) Duplicati proiectul din lab09 si creati o noua baza de date numita Lab10_Stiri, modificand connection string si in appsettings.json, si InitialCatalog, si in Program.cs la adaugarea serviciului de dependency injection.
+
+2) Stergeti migrarile existente (daca sunt) si Add-Migration Lab10_StiriDb dupa care Update-Database, ambele din Package Manager Console.
+
+3) Fisierul lab10_db.dacpac contine baza de date necesara. Din SQL Server Object Explorer, pe baza de date creata (Lab10_StiriDb), dati Publish si selectati fisierul .dacpac dat, astfel ati importat datele
+
+4) Instalati pachetele Swashbuckle.AspNetCore (v6.5.0) si AutoMapper (v13.0.1). 
+
+Adaugati serviciul urmator de dependency injection:
+builder.Services.AddSwaggerGen();
+
+De asemenea, adaugati conditia inainte de app.UseStaticFiles(): 
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+
+Impreuna cu linia urmatoare inainte de app.Run(): 
+app.MapControllers();
+
+
+5) Creati un director Models.UI si in acesta un fisier StireModelUI.cs (vom discuta despre DTO), pe scurt, ce avem in BD si ce intoarcem la utilizator difera (nu ii dam toate coloanele spre exemplu, ci doar un subset al lor, etc).
+
+6) Creati un controller StireAPIController.cs din template-ul <TODO> care mosteneste ControllerBase
+
+7) In cadrul controller-ului, salvati o referinta (ca de obicei) catre _context din Db, primita in constructor prin Dependency Injection.
+
+8) Creati versiuni sincrone pentru urmatoarele actiuni, cu rute cu nume cu sens, si verificati de erori, returnand coduri HTTP corecte si cat mai multe informatii despre erori:
+
+Toate metodele de mai jos retureaza, ca de obicei, IActionResult, insa, de data aceasta, status-uri HTTP, nu pagini MVC sau Razor.
+
+Pentru fiecare metoda, calea sa fie cat mai evidenta in API
+
+a) Get() - returneaza lista de stiri
+b) Delete(int id) - sterge stirea cu id-ul dat
+c) Post(StireModel data) - adaugati o noua stire
+d) Put(int id, StireModel data) - modificati stirea referentiata cu id-ul id
+
+9) Creati varianta asincrona pentru toate metodele, si lasati-o disponibila in API.
+
+10) Doar admin/moderator sa poata sa vada pagina de swagger
