@@ -1,0 +1,33 @@
+﻿@model List<StireModel>
+
+@{
+    List<StireModel> stiri = Model;
+    ViewData["Title"] = "Portal Stiri Lab09";
+    string userRole = User?.Claims?.FirstOrDefault(claim => claim.Type == "Role")?.Value ?? "";
+}
+
+<h1>Portal Stiri Lab09</h1>
+
+@if (userRole.ToLower() == "moderator")
+{
+    <a class="btn btn-primary" asp-action="AdaugaStire">Adauga Stire</a>
+}
+
+@{
+    foreach(StireModel stire in stiri)
+    {
+        <div class="card my-3">
+            <div class="card-body">
+                <h2><a asp-controller="Stire" asp-action="Stire" asp-route-stireId="@stire.Id">@stire.Titlu</a></h2>
+
+                @if (userRole.ToLower() == "moderator")
+                {
+                    <a class="btn btn-primary" asp-controller="Stire" asp-action="ModificaStire" asp-route-stireId="@stire.Id">Modifica stire</a>
+                    <a class="btn btn-danger" asp-controller="Stire" asp-action="StergeStire" asp-route-stireId="@stire.Id">Sterge stire </a>
+                }
+            </div>
+        </div>
+    }
+}
+@* daca nu mentionam controller-ul, este implicit controllerul cu acelasi nume precum folder-ul parinte al fisierului *@
+<h2></h2>

@@ -1,0 +1,38 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    List<StireModel> stiri = Model;
+}
+
+<h2>Cautare</h2>
+<form asp-controller="Search" asp-action="SearchPortal">
+    <div class="input-group col-sm-7 mx-auto">
+        <input type="text" class="form-control" name="titluStire" placeholder="Titlu stire..." aria-label="Search" value="@ViewBag.TitluStire" />
+        <input type="date" class="form-control" name="dataInf" value="@ViewBag.DataInf?.ToString("yyyy-MM-dd")" />
+        <input type="date" class="form-control" name="dataSup" value="@ViewBag.DataSup?.ToString("yyyy-MM-dd")" />
+        <button class="btn btn-success" type="submit">Cautare</button>
+    </div>
+</form>
+
+@if (stiri != null)
+{
+    <h2>Rezultatele cautarii:</h2>
+
+    @if (stiri.Count > 0)
+    {
+        <ul class="mt-4 list-unstyled">
+            @foreach (var stire in stiri)
+            {
+                <li class="rounded border-1 border p-2">
+                    <h2>@stire.Titlu</h2>
+                    <a asp-controller="Stire" asp-action="Stire" asp-route-stireId="@stire.Id">Citeste mai departe</a>
+                </li>
+            }
+        </ul>
+    }
+    else
+    {
+        <p>Nicio stire nu contine secventa cautata.</p>
+    }
+}

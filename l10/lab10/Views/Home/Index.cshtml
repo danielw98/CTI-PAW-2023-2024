@@ -1,0 +1,13 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    string userRole = User?.Claims?.FirstOrDefault(claim => claim.Type == "Role")?.Value ?? "";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    @if (userRole.ToLower() == "admin")
+    {
+        <a href="/swagger" class="btn btn-primary">Swagger</a>
+    }
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
