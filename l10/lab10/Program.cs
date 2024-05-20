@@ -18,7 +18,7 @@ public class Program
         // Add services to the container.
         builder.Services.AddControllersWithViews();
         builder.Services.AddDbContext<StiriContext>(options =>
-            options.UseSqlServer(builder.Configuration.GetConnectionString("Stiri_Lab10_MVC_361")));
+            options.UseSqlServer(builder.Configuration.GetConnectionString("Stiri_Lab10_MVC")));
         builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, options =>
                 {

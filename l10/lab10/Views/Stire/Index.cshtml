@@ -1,14 +1,20 @@
 ﻿@model List<StireModel>
 
 @{
-    List<StireModel> stiri = Model;
     ViewData["Title"] = "Portal Stiri Lab09";
+    
+    List<StireModel> stiri = Model;
     string userRole = User?.Claims?.FirstOrDefault(claim => claim.Type == "Role")?.Value ?? "";
+
+    bool CanEdit(string userRole)
+    {
+        return userRole.ToLower() == "moderator" || userRole.ToLower() == "admin";
+    }
 }
 
 <h1>Portal Stiri Lab09</h1>
 
-@if (userRole.ToLower() == "moderator")
+@if (CanEdit(userRole) == true)
 {
     <a class="btn btn-primary" asp-action="AdaugaStire">Adauga Stire</a>
 }
@@ -20,7 +26,7 @@
             <div class="card-body">
                 <h2><a asp-controller="Stire" asp-action="Stire" asp-route-stireId="@stire.Id">@stire.Titlu</a></h2>
 
-                @if (userRole.ToLower() == "moderator")
+                @if (CanEdit(userRole) == true)
                 {
                     <a class="btn btn-primary" asp-controller="Stire" asp-action="ModificaStire" asp-route-stireId="@stire.Id">Modifica stire</a>
                     <a class="btn btn-danger" asp-controller="Stire" asp-action="StergeStire" asp-route-stireId="@stire.Id">Sterge stire </a>
